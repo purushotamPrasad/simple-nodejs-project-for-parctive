@@ -5,22 +5,5 @@ services:
     build: ./
     ports:
       - "3001:3000"
-    networks:
-      - mynetwork
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD:${MYSQL_ROOT_PASSWORD=myroot}
-      MYSQL_DATABASE: ${MYSQL_DATABASE=mydatabase}
-      MYSQL_USER: ${MYSQL_USER=myuser}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD=mypassword}
-    ports:
-      - "3306:3306"
-    voluemes:
-      - mysql-data:/var/lib/mysql
-    restart: always
-      networks:
-        - mynetwork
-networks:
-  mynetwork: 
-   driver: bridg
+    container_name: myapp_container
+    

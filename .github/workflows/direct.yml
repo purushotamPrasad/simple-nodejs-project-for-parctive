@@ -17,11 +17,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/simple-nodejs-app || {
-              git clone https://github.com/rat9615/simple-nodejs-app.git /var/www/simple-nodejs-app
-              cd /var/www/simple-nodejs-app
-            }
-
+            cd /home/ubuntu/
+            cd /home/ubuntu/simple-nodejs-project-for-parctive/
             git pull origin main
-            npm install
-            npm start
+            docker-compose down
+            docker-compose up -d --build
